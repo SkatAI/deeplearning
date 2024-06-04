@@ -36,4 +36,18 @@ src/mnist_sk_viz_weights.py
 - faire jouer et demander ce qu'ils ont trouvé
 - demo learning rate, complexité
 
+2. tenseurs
+- quelques opérations sur les tenseurs
+- charger une dataframe
+- charger des images et les transformer
+
+https://github.com/SkatAI/skatai_deeplearning/blob/master/notebooks/les_tenseurs.ipynb
+
+
+3. Keras sur MNIST
+cycle de vie du modele
+définition architecture simple
+choix des fct activation, solver, batch size etc
+
+
 

@@ -25,7 +25,6 @@ class Perceptron:
             print(f" E [{epoch+1}/{self.epochs}] Accuracy: {accuracy * 100:.4f}%")
 
 
-
     def evaluate(self, X, y):
         predictions = [self.predict(xi) for xi in X]
         accuracy = np.mean(predictions == y)
