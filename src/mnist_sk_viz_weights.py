@@ -1,19 +1,28 @@
+'''
+Visualization of MLP weights on MNIST
+https://scikit-learn.org/stable/auto_examples/neural_networks/plot_mnist_filters.html
+https://www.openml.org/search?type=data&sort=runs&id=554&status=active
+'''
 import warnings
 
 import matplotlib.pyplot as plt
 
 from sklearn.datasets import fetch_openml
-from sklearn.exceptions import ConvergenceWarning
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
+from sklearn.exceptions import ConvergenceWarning
 
-# Load data from https://www.openml.org/d/554
+# load dataset
 X, y = fetch_openml("mnist_784", version=1, return_X_y=True, as_frame=False)
 
+# normalisation
 X = X / 255.0
 
 # Split data into train partition and test partition
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0, test_size=0.7)
+
+# definir le model avec 1 couche cachée et 40 noeud internes
+# https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html
 
 mlp = MLPClassifier(
     hidden_layer_sizes=(40,),
@@ -25,12 +34,7 @@ mlp = MLPClassifier(
     learning_rate_init=0.2,
 )
 
-# this example won't converge because of resource usage constraints on
-# our Continuous Integration infrastructure, so we catch the warning and
-# ignore it here
-with warnings.catch_warnings():
-    warnings.filterwarnings("ignore", category=ConvergenceWarning, module="sklearn")
-    mlp.fit(X_train, y_train)
+mlp.fit(X_train, y_train)
 
 print("Training set score: %f" % mlp.score(X_train, y_train))
 print("Test set score: %f" % mlp.score(X_test, y_test))
