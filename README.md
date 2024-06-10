@@ -50,6 +50,7 @@ Les notebooks sont à executer sur Google Colab avec un runtime GPU
 * S4 : RNN
     * Recurrent Neural Networks
     * LSTM et GRU
+    * slides : https://docs.google.com/presentation/d/1dDsXIFrMAPcXc_GQ1AqMIqvAhUjRDhdleA_oMsxWvCE/edit?usp=sharing
 
 * S5 : Autoencoders et VAEs
     * Autoencoder
