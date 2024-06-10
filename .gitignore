@@ -2,10 +2,8 @@
 .ipynb_checkpoints/
 
 # Ignored File Types
-*.pdf
 *.xlsx
 *.pkl
-*.json
 *.log
 *.zip
 *.tar.gz

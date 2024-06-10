@@ -17,21 +17,24 @@ print(tf.__version__)
 
 tf.keras.mixed_precision.set_global_policy('mixed_float16')
 
-!rm moliere.txt
+!rm french.txt
 # !rm dom-juan.txt.3
 
-!wget https://raw.githubusercontent.com/SkatAI/skatai_deeplearning/master/data/moliere.txt
+# !wget https://raw.githubusercontent.com/SkatAI/skatai_deeplearning/master/data/moliere.txt
+!wget https://raw.githubusercontent.com/SkatAI/skatai_deeplearning/master/data/le-horla.txt
+
+!mv le-horla.txt french.txt
 
 !ls -al
 
-!head -n 20 moliere.txt
+!head -n 20 french.txt
 
 import numpy as np
 import tensorflow as tf
 from transformers import CamembertTokenizer, TFCamembertModel
 
 # Load the text data
-with open('moliere.txt', 'r', encoding='utf-8') as file:
+with open('french.txt', 'r', encoding='utf-8') as file:
     text = file.read()
 
 # nombre de lignes
@@ -51,16 +54,17 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 # Load the text data
-with open('moliere.txt', 'r', encoding='utf-8') as file:
+with open('french.txt', 'r', encoding='utf-8') as file:
     text = file.read()
 
 # Tokenize the text using Keras Tokenizer
-vocab_size = 500  # Adjust based on your tokenizer's vocabulary size
+vocab_size = 2000  # Adjust based on your tokenizer's vocabulary size
 tokenizer = Tokenizer(num_words=vocab_size, oov_token='<OOV>')
 tokenizer.fit_on_texts([text])
 
 sequences = tokenizer.texts_to_sequences([text])[0]
-SEQ_LENGTH = 20  # Adjust based on your input sequence length
+SEQ_LENGTH = 40  # Adjust based on your input sequence length
+
 
 # Prepare input and target sequences
 input_sequences = []
@@ -77,22 +81,22 @@ target_sequences = np.expand_dims(target_sequences, axis=-1)  # Ensure target se
 """# Model"""
 
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Embedding, GRU, Dense
+from tensorflow.keras.layers import Embedding, GRU, LSTM, Dense
 
 embedding_dim = 128
 units = 128
 
 model = Sequential([
     Embedding(vocab_size, embedding_dim, input_length=SEQ_LENGTH),
-    GRU(units, return_sequences=True),
-    GRU(units),
+    LSTM(units, return_sequences=True),
+    LSTM(units),
     Dense(vocab_size, activation='softmax')
 ])
 
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam')
 model.summary()
 
-model.fit(input_sequences, target_sequences, epochs=10, batch_size=128)
+model.fit(input_sequences, target_sequences, epochs=20, batch_size=64)
 
 def generate_text(model, tokenizer, seed_text, seq_length=SEQ_LENGTH, max_length=100, temperature=1.0):
     generated_text = seed_text
@@ -125,7 +129,9 @@ def generate_text(model, tokenizer, seed_text, seq_length=SEQ_LENGTH, max_length
     return generated_text
 
 seed_text = "Bonjour, comment allez-vous?"
-print(generate_text(model, tokenizer, seed_text))
+new_text = generate_text(model, tokenizer, seed_text)
+
+print(new_text.replace('<OOV>', ''))
 
 """# legacy"""
 
