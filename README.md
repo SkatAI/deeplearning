@@ -22,9 +22,9 @@ Les notebooks sont à executer sur Google Colab avec un runtime GPU
 
 * S1 : rappels et perceptron
     * Rappels de machine learning : overfit, fonction de coût, régularisation
+    * Gradient stochastique
     * Perceptron
     * Perceptron multicouches
-    * Gradient stochastique
 
     * slides : https://docs.google.com/presentation/d/1ICzxLRu9RaYCVQ6hsSuWW7dCdrez0QlZmhmVPL5uda0/edit?usp=sharing
 
@@ -36,6 +36,8 @@ Les notebooks sont à executer sur Google Colab avec un runtime GPU
     * Tenseurs
     * Cycle de vie d'un modèle
     * Backpropagation
+
+    * slides : https://docs.google.com/presentation/d/101_5TpuJgcOGTP5_x9m4aXEg9bNa44r7uHTxOjD8Kw0/edit?usp=sharing
 
 * S3 : CNN
     * Callbacks
