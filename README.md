@@ -26,6 +26,9 @@ Les notebooks sont à executer sur Google Colab avec un runtime GPU
     * Perceptron multicouches
     * Gradient stochastique
 
+    * slides : https://docs.google.com/presentation/d/1ICzxLRu9RaYCVQ6hsSuWW7dCdrez0QlZmhmVPL5uda0/edit?usp=sharing
+
+
 * S2 : perceptron multicouches
     * Le deep learning
     * Écosystème et librairies : Tensorflow, JAX, Pytorch, Keras
