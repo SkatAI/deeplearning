@@ -1,6 +1,8 @@
 # Deep Learning par la pratique
 
-Cours sur 3 jours de Deep Learning avec Tensorflow et Keras
+Cours sur 3 jours de Deep Learning avec Tensorflow et Keras.
+
+11, 12, 13 juin 2024
 
 # Ressources techniques
 
