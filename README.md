@@ -45,6 +45,8 @@ Les notebooks sont à executer sur Google Colab avec un runtime GPU
     * Tensorboard
     * Transfer Learning
 
+    * slides : https://docs.google.com/presentation/d/1kIjCrD8IClgCwW0e-7e8lbjLLNEC_xSAGqTeZ1Blj4Q/edit?usp=sharing
+
 * S4 : RNN
     * Recurrent Neural Networks
     * LSTM et GRU
