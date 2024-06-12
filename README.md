@@ -56,7 +56,11 @@ Les notebooks sont à executer sur Google Colab avec un runtime GPU
     * Autoencoder
     * Variational autoencoders
 
+    * slides : https://docs.google.com/presentation/d/1c8rTWcZYmNbPx8M4htF43e8J8Zw1R_-FJbwJ_OUk-Xw/edit?usp=sharing
+
+
 * S6 : NLP
-    * Historique
-    * Attention
-    * Transformers
+    * Text
+    * Recap et questions
+
+    * slides (wip) : https://docs.google.com/presentation/d/1Q9hzLkxESdJczZO7E5tZ-FJEeFyyVDojDNfN5vRCCW0/edit?usp=sharing
