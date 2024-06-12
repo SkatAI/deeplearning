@@ -82,6 +82,7 @@ def create_model(n_nodes = 256, lr = 0.01):
 
 """N'hesitez pas à changer les paramètres
 - n_nodes = 128, 1024
+
 - lr = 0.2, 0.000001, etc ...
 etc
 """
